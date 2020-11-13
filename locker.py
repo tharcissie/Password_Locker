@@ -37,12 +37,15 @@ class Credential():
     '''
     class which helps us to create new creadential for a certain account
     '''  
-    Credentials = []
+    credentials = []
 
     def __init__(self, account_name,user_name, account_password):
         '''
         new instance of class credential
         '''
+        self.account_name = account_name
+        self.user_name = user_name
+        self.account_password = account_password
 
     @classmethod
     def user(cls,username,password):
@@ -53,6 +56,34 @@ class Credential():
             if(user.username == username and user.password == password):
                 user == user.username
             return user
+
+    def save_credential(self):
+        '''
+        method to save account credential
+        '''
+        Credential.credentials.append(self)
+
+    def delete_credential(self):
+        '''
+        method to delete account crential
+        '''
+        Credential.credentials.remove(self)
+
+    @classmethod
+    def search_credential(self):
+        '''
+        method to search for an count credential
+        '''
+        for credential in credentials:
+            if credential.account_name == account_name:
+                return credential
+
+    def view_all_credential(cls):
+        '''
+        method to view all acount credential
+        '''
+        return cls.credentials
+
 
 
 
