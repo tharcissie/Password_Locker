@@ -86,8 +86,15 @@ def main():
                 break
             elif abbreviation == 'g':
                 password = generate_password()
+                break
+            else:
+                print('Invalid password')
+            
+        save(create_user(username,password))
 
-                
+    
+
+
 
 
     
