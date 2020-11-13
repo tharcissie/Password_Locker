@@ -19,7 +19,6 @@ class User:
         '''
         function to save a user credentials
         '''
-
         User.users.append(self)
 
     @classmethod #This means you can use the class and its properties inside that method rather than a particular instance.
@@ -54,7 +53,7 @@ class Credential():
         '''
         function to help us to know if a user exit
         '''
-         for user in User.users:
+        for user in User.users:
             if(user.username == username and user.password == password):
                 user == user.username
             return user
