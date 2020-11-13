@@ -1,3 +1,5 @@
+import random
+
 class User:
     '''
     create a user class
@@ -20,7 +22,7 @@ class User:
 
         User.users.append(self)
 
-    @classmethod
+    @classmethod #This means you can use the class and its properties inside that method rather than a particular instance.
     def list_users(cls):
         '''
         method to display all credentials
@@ -48,7 +50,7 @@ class Credential():
         self.account_password = account_password
 
     @classmethod
-    def user(cls,username,password):
+    def user_checker(cls,username,password):
         '''
         function to help us to know if a user exit
         '''
@@ -83,6 +85,15 @@ class Credential():
         method to view all acount credential
         '''
         return cls.credentials
+
+    def generate_password(self):
+        self.account_password = random.randint(00000000,99999999)
+        return self.user_nameaccount_password
+
+    def creadential_checker(self):
+        '''
+        method to help us 
+
 
 
 
