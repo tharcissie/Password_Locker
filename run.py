@@ -125,14 +125,17 @@ def main():
         print('@'*20)
         abbreviation = input().lower()
         if abbreviation == "c":
+            print('@'*20)
             print("Create new account credential")
-            print("@"*10)
+            print("@"*20)
             print("Account name ....")
             account_name = input().lower()
             print("Your Account username")
             username = input()
             while True:
+                print('@'*20)
                 print("Enter the following to continue: \n p ---------- To type your own pasword if you have an account:\n g - To generate Password for you")
+                print('@'*20)
                 password = input().lower()
                 if password== 'p':
                     password = input("Enter Password\n")
@@ -141,7 +144,9 @@ def main():
                     password = generate_password()
                     break
                 else:
+                    print('@'*20)
                     print("Invalid password please try again")
+                    print('@'*20)
             save_credential(create_credential(account_name,username,password))
             print('@'*20)
             print(f"Created an Account credential for  {account_name} with a username of {username} and password {password}")
@@ -149,28 +154,41 @@ def main():
 
         elif abbreviation == "lc":
             if view_all_credential():
+                print('@'*20)
                 print("Your saved credentials accounts: ")
+                print('@'*20)
                 for account in view_all_credential():
+                    print('@'*20)
                     print(f"+ Account:{account.account_name} \n User Name:{username}\n Password:{password}")
-                    
+                    print('@'*20)
                 print('@' * 20)
             else:
+                print('@'*20)
                 print("You don't have any credentials account yet!!!!!!!!!!!!!!")
+                print('@'*20)
 
         elif abbreviation == "sc":
+            print('@'*20)
             print("Enter account name ")
+            print('@'*20)
             search= input().lower()
             if search_credential(search):
                 credential_ = search_credential(search)
+                print('@'*20)
                 print(f"Account Name : {credential_.account_name}")
                 print('~' * 10)
                 print(f"User Name: {credential_.user_name} Password :{credential_.account_password}")
                 print('~' * 10)
+                print('@'*20)
             else:
+                print('@'*20)
                 print("Credential does not exist\n")
+                print('@'*20)
 
         elif abbreviation == "d":
+            print('@'*20)
             print("Enter the account name  you want to delete")
+            print('@'*20)
             search = input().lower()
             if search_credential(search):
                 credential = search_credential(search)
