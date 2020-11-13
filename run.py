@@ -72,14 +72,24 @@ def creadential_checker(credential):
     return Credential.creadential_checker(credential)
 
 def main():
-    print("Welcome to PASSWORD LOCKER...\n Enter the following abbreviation to continue:\n c ---------- Create an account \n l ---------- Login if you already have an account \n")
+    print('#'*30)
+    print("Welcome to PASSWORD LOCKER")  
+    print('#'*30)
+    print('\n')
+    print('@'*20)
+    print("Enter the following abbreviation to continue:\n c ---------- Create an account \n l ---------- Login if you already have an account \n")
+    print('@'*20)
     abbreviation = input().lower()
+    print('@'*20)
     if abbreviation == 'c':
+        print('@'*20)
         print("Create an account in PASSWORD LOCKER")
-        print("@"*20)
-        username = input('User name: ')
+        print('@'*20)
+        username = input('Username: ')
         while True:
+            print('@'*20)
             print('Enter the following to continue: \n p ---------- Type a password\n g ---------- generate a password fro you\n')
+            print('@'*20)
             abbreviation = input().lower()
             if abbreviation == 'p':
                 password = input("Enter a password for your account\n")
@@ -88,9 +98,107 @@ def main():
                 password = generate_password()
                 break
             else:
+                print('@'*20)
                 print('Invalid password')
+                print('@'*20)
             
-        save(create_user(username,password))
+        save_user(create_user(username,password))
+        print('@'*20)
+        print(f"Created an Account with username {username} and password {password}")
+        print('@'*20)
+    
+    elif abbreviation == 'l':
+        print('@'*20)
+        print("Enter your user name and your password to continue")
+        print('@'*20)
+        username = input("Username: ")
+        password = input("password: ")
+        login = user_checker(username,password)
+        if user_checker == login:
+            print('@'*20)
+            print(f"Hello {username}.Welcome To PASSWORD LOCKER \n")  
+            print('@'*20)
+    
+    while True:
+        print('@'*20)
+        print("Enter the following to continue: \n c ---------- Create a new account credential \n lc ---------- Display all acount credentials \n sc ---------- Search for an account credential \n g ---------- To generate password for you \n d ---------- Delete credential \n e ---------- To Exit  \n")
+        print('@'*20)
+        abbreviation = input().lower()
+        if abbreviation == "c":
+            print("Create new account credential")
+            print("@"*10)
+            print("Account name ....")
+            account_name = input().lower()
+            print("Your Account username")
+            username = input()
+            while True:
+                print("Enter the following to continue: \n p ---------- To type your own pasword if you have an account:\n g - To generate Password for you")
+                password = input().lower()
+                if password== 'p':
+                    password = input("Enter Password\n")
+                    break
+                elif password == 'g':
+                    password = generate_password()
+                    break
+                else:
+                    print("Invalid password please try again")
+            save_credential(create_credential(account_name,username,password))
+            print('@'*20)
+            print(f"Created an Account credential for  {account_name} with a username of {username} and password {password}")
+            print('@'*20)
+
+        elif abbreviation == "lc":
+            if view_all_credential():
+                print("Your saved credentials accounts: ")
+                for account in view_all_credential():
+                    print(f"+ Account:{account.account_name} \n User Name:{username}\n Password:{password}")
+                    
+                print('@' * 20)
+            else:
+                print("You don't have any credentials account yet!!!!!!!!!!!!!!")
+
+        elif abbreviation == "sc":
+            print("Enter account name ")
+            search= input().lower()
+            if search_credential(search):
+                credential_ = search_credential(search)
+                print(f"Account Name : {credential_.account_name}")
+                print('~' * 10)
+                print(f"User Name: {credential_.user_name} Password :{credential_.account_password}")
+                print('~' * 10)
+            else:
+                print("Credential does not exist\n")
+
+        elif abbreviation == "d":
+            print("Enter the account name  you want to delete")
+            search = input().lower()
+            if search_credential(search):
+                credential = search_credential(search)
+                print("~"*10)
+                credential.delete_credential()
+                print('\n')
+                print(f"{credential.account_name} deleted!!!")
+                print('\n')
+            else:
+                print("Credential does not exist ")
+        
+        elif abbreviation == 'g':
+            password = generate_password()
+            print(f" {password} password generated succesfull.")
+        elif abbreviation == 'e':
+            print("Come Back soon please!!")
+            break
+        else:
+            print("Try again")
+    else:
+        print("Please enter a valid input to continue")
+
+if __name__ == '__main__':
+    main()
+
+                
+        
+
 
     
 

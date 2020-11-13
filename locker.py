@@ -77,8 +77,8 @@ class Credential():
         '''
         for credential in cls.credentials:
             if credential.account_name == account_name:
-     
                 return credential
+                
     @classmethod
     def view_all_credential(cls):
         '''
@@ -86,9 +86,9 @@ class Credential():
         '''
         return cls.credentials
 
-    def generate_password(self):
-        self.account_password = random.randint(00000000,99999999)
-        return self.user_nameaccount_password
+    def generate_password():
+        account_password = random.randint(00000000,99999999)
+        return account_password
 
     def creadential_checker(self):
         '''
