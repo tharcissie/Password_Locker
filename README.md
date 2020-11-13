@@ -10,3 +10,7 @@ social media account
 ## Technologies Used
 *Python
 
+## Support and contact details
+If anyone need support concerning the project or anything related, just reach out to tharcissieidufashe@gmail.com
+
+
