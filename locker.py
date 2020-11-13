@@ -92,7 +92,14 @@ class Credential():
 
     def creadential_checker(self):
         '''
-        method to help us 
+        method to help us now if account exit
+        '''
+        for credential in credentials:
+            if credential.account_name == account_name:
+                return True
+        return False
+
+
 
 
 
