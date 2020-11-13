@@ -71,14 +71,15 @@ class Credential():
         Credential.credentials.remove(self)
 
     @classmethod
-    def search_credential(self):
+    def search_credential(cls,account_name):
         '''
         method to search for an count credential
         '''
-        for credential in credentials:
+        for credential in cls.credentials:
             if credential.account_name == account_name:
+     
                 return credential
-
+    @classmethod
     def view_all_credential(cls):
         '''
         method to view all acount credential
